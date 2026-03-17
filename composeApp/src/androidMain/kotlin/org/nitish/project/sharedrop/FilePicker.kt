@@ -5,7 +5,7 @@ import android.content.Intent
 import android.net.Uri
 
 actual class FilePicker {
-    actual fun pickFile(onFilePicked: (fileName: String, bytes: ByteArray) -> Unit) {
+    actual fun pickFile(onFilePicked: (path: String) -> Unit) {
         val activity = AndroidContext.context as? Activity ?: return
         AndroidContext.onFilePicked = onFilePicked
         val intent = Intent(Intent.ACTION_GET_CONTENT).apply {

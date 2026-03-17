@@ -4,8 +4,7 @@ expect class FileSender() {
     fun sendFile(
         host: String,
         port: Int,
-        fileName: String,
-        bytes: ByteArray,
+        absolutePath: String,
         onProgress: (Float) -> Unit,
         onResult: (Boolean) -> Unit)
 }
