@@ -148,7 +148,6 @@ The pattern used throughout is Kotlin's `expect/actual` — `commonMain` defines
 
 ## Roadmap
 
-- Transfer progress indicator
 - Send multiple files at once
 - Encrypted transfer
 - iOS support
@@ -164,7 +163,6 @@ If you want to contribute, you're welcome to. The codebase is relatively small a
 
 Good places to start:
 
-- Add a transfer progress bar (the bytes are already being streamed, just needs UI)
 - Implement iOS discovery using the Network framework or Bonjour
 - Add a screen that shows transfer history
 - Dark mode
