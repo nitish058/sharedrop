@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -69,7 +70,7 @@ fun HomeScreen() {
     var selectedDevice by remember { mutableStateOf<DiscoveredDevice?>(null) }
     var statusMessage by remember { mutableStateOf("") }
     var transferProgress by remember { mutableStateOf(0f) }
-    
+
     val settings = remember { Settings(deviceNameStorage = provideDeviceNameStorage()) }
     val appSettings by settings.settingsFlow.collectAsStateWithLifecycle(initialValue = AppSettings())
 
@@ -128,8 +129,11 @@ fun HomeScreen() {
             }
         }
 
-        receiver.startReceiving(8080) { fileName, bytes ->
-            FileSaver().saveFile(fileName, bytes) { success, path ->
+        receiver.startReceiving(8080, onProgress = { fileName, progress ->
+            statusMessage = "Receiving '$fileName'..."
+            transferProgress = progress
+        }) { fileName, tempFilePath ->
+            FileSaver().moveFile(fileName = fileName, sourcePath = tempFilePath) { success, path ->
                 receivedFiles.add(fileName)
                 statusMessage = if (success) {
                     "Saved: $fileName to $path"
@@ -265,18 +269,17 @@ fun HomeScreen() {
                 }
             }
 
-                if (receivedFiles.isNotEmpty()) {
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Text(
-                        text = "Received Files", style = MaterialTheme.typography.titleMedium
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    LazyColumn {
-                        items(receivedFiles) { fileName ->
-                            Text(
-                                text = "📄 $fileName", modifier = Modifier.padding(vertical = 4.dp)
-                            )
-                        }
+            if (receivedFiles.isNotEmpty()) {
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    text = "Received Files", style = MaterialTheme.typography.titleMedium
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                LazyColumn {
+                    items(receivedFiles) { fileName ->
+                        Text(
+                            text = "📄 $fileName", modifier = Modifier.padding(vertical = 4.dp)
+                        )
                     }
                 }
             }
