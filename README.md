@@ -6,27 +6,18 @@ It's built with Kotlin Multiplatform and Compose Multiplatform, so most of the c
 
 ---
 
-##  Download
+## Download
 
-###  Latest Version
+### Latest Version
 
-####  Android
+| Platform | Download                                                                                                                                                         |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Android  | [![Download](https://img.shields.io/badge/Download-inactive?style=for-the-badge)](https://github.com/nitish058/sharedrop/releases/latest/download/sharedrop.apk) |
+| macOS    | [![Download](https://img.shields.io/badge/Download-inactive?style=for-the-badge)](https://github.com/nitish058/sharedrop/releases/latest/download/sharedrop.dmg) |
+| Windows  | [![Download](https://img.shields.io/badge/Download-inactive?style=for-the-badge)](https://github.com/nitish058/sharedrop/releases/latest/download/sharedrop.exe) |
+| Linux    | [![Download](https://img.shields.io/badge/Download-inactive?style=for-the-badge)](https://github.com/nitish058/sharedrop/releases/latest/download/sharedrop.deb) |
 
-[![Download APK](https://img.shields.io/badge/Download-Android%20APK-green?style=for-the-badge&logo=android)](https://github.com/nitish058/sharedrop/releases/latest/download/sharedrop.apk)
-
----
-
-####  Desktop
-
-[![Download macOS (DMG)](https://img.shields.io/badge/Download-macOS%20DMG-black?style=for-the-badge&logo=apple)](https://github.com/nitish058/sharedrop/releases/latest/download/sharedrop.dmg)
-
-[![Download Windows (EXE)](https://img.shields.io/badge/Download-Windows%20EXE-blue?style=for-the-badge&logo=windows)](https://github.com/nitish058/sharedrop/releases/latest/download/sharedrop.exe)
-
-[![Download Linux (DEB)](https://img.shields.io/badge/Download-Linux%20DEB-orange?style=for-the-badge&logo=linux)](https://github.com/nitish058/sharedrop/releases/latest/download/sharedrop.deb)
-
----
-
- [View All Releases](https://github.com/nitish058/sharedrop/releases)
+[View All Releases](https://github.com/nitish058/sharedrop/releases) for additional builds and older versions.
 
 ## Screenshots
 
